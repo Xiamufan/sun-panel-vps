@@ -1,0 +1,82 @@
+
+== Shell syntax ==
+
+== Python tests ==
+test_offline_refresh_filters_persists_and_deduplicates (test_wallpapers.WallpaperTests.test_offline_refresh_filters_persists_and_deduplicates) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.028s
+
+OK
+
+== First deployment ==
+seed.tar.gz: OK
+ sun-panel Pulling 
+ panel-web Pulling 
+ panel-web Pulled 
+ sun-panel Pulled 
+ Network sun-panel-vps-check_default  Creating
+ Network sun-panel-vps-check_default  Created
+ Container sun-panel-vps-check-sun-panel-1  Creating
+ Container sun-panel-vps-check-sun-panel-1  Created
+ Container sun-panel-vps-check-panel-web-1  Creating
+ Container sun-panel-vps-check-panel-web-1  Created
+ Container sun-panel-vps-check-sun-panel-1  Starting
+ Container sun-panel-vps-check-sun-panel-1  Started
+ Container sun-panel-vps-check-panel-web-1  Starting
+ Container sun-panel-vps-check-panel-web-1  Started
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Deployment ready. Visit http://<VPS-IP>:13002/ (bind address 127.0.0.1).
+Wallpaper library: http://<VPS-IP>:13002/custom/wallpaper-downloads.html
+Data: /var/tmp/sun-panel-vps-check-20261014-final/data. Panel login is preserved from the source snapshot.
+
+== Endpoints and snapshot ==
+
+== Wallpaper proxy ==
+Wallhaven thumbnail proxy and invalid path rejection: verified
+Homepage, portable gallery, 4518 wallpapers, 155 items, 15 groups: verified
+
+== Repeated deployment preserves data ==
+Backup saved: /var/tmp/sun-panel-vps-check-20261014-final/data/backups/panel-20261014T021645-6980.tar.gz
+ panel-web Pulling 
+ sun-panel Pulling 
+ sun-panel Pulled 
+ panel-web Pulled 
+ Container sun-panel-vps-check-sun-panel-1  Running
+ Container sun-panel-vps-check-panel-web-1  Running
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+Deployment ready. Visit http://<VPS-IP>:13002/ (bind address 127.0.0.1).
+Wallpaper library: http://<VPS-IP>:13002/custom/wallpaper-downloads.html
+Data: /var/tmp/sun-panel-vps-check-20261014-final/data. Panel login is preserved from the source snapshot.
+Repeat deployment retains edited item and creates backup: verified
+
+== Existing deployment protection ==
+Refusing to overwrite existing deployment: /opt/sun-panel. Use another INSTALL_DIR.
+
+== Existing production service ==
+sun-panel-vps-check-panel-web-1 Up 4 seconds
+sun-panel-vps-check-sun-panel-1 Up 5 seconds
+sun-panel-web Up 9 hours
+sun-panel Up 9 hours
+
+== Timer syntax ==
+Normalized form: *-*-* 08:00:00 Asia/Shanghai
+    Next elapse: Thu 2026-10-15 00:00:00 UTC
+       From now: 21h left
+
+== Isolated deployment cleanup ==
+ Container sun-panel-vps-check-panel-web-1  Stopping
+ Container sun-panel-vps-check-panel-web-1  Stopped
+ Container sun-panel-vps-check-panel-web-1  Removing
+ Container sun-panel-vps-check-panel-web-1  Removed
+ Container sun-panel-vps-check-sun-panel-1  Stopping
+ Container sun-panel-vps-check-sun-panel-1  Stopped
+ Container sun-panel-vps-check-sun-panel-1  Removing
+ Container sun-panel-vps-check-sun-panel-1  Removed
+ Network sun-panel-vps-check_default  Removing
+ Network sun-panel-vps-check_default  Removed
+
+ALL CHECKS PASSED. Original service remains available on port 3002.
+
