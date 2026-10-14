@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-14",
+  "source_os": "Ubuntu 24.04.4 LTS",
+  "architecture": "amd64",
+  "sun_panel_version": "1.8.1",
+  "navigation_items": 155,
+  "groups": 15,
+  "wallpapers": 4518,
+  "cache_policy": "rebuild on demand",
+  "database_backup": "SQLite online backup, integrity_check ok",
+  "source_snapshot_sha256": "0e730d363689a1c0106ed67a3b6fcfc7853ee1f3fd7116b47dfafb24e2bf3b71"
+}

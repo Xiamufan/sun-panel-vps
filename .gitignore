@@ -1,0 +1,8 @@
+.env
+conf/
+wallpaper-cache/
+wallpaper-state.json
+*.lock
+__pycache__/
+backups/
+work/

@@ -1,0 +1,26 @@
+services:
+  sun-panel:
+    image: hslr/sun-panel@sha256:dc8fea427bf5ee825b81ebbc5bd6f39e61123ecbf8173601a57b1ec00637c444
+    volumes:
+      - ./conf:/app/conf
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+  panel-web:
+    image: nginx@sha256:b972f831f200b19ef0767938224f9711e74cd783718738cd7405d5cabf75c442
+    ports:
+      - "${BIND_ADDRESS:-0.0.0.0}:${PANEL_PORT:-3002}:3002"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./wallpaper-cache:/var/cache/nginx/wallpapers
+    depends_on:
+      - sun-panel
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

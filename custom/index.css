@@ -1,0 +1,4 @@
+
+/* Unified readable bookmark cards */
+.item-card-info, .item-card-info * { color: #fff !important; }
+.item-card-info { background: rgba(18,27,43,.72) !important; border: 1px solid rgba(255,255,255,.14); backdrop-filter: blur(8px); }
