@@ -16,6 +16,30 @@ apt-get update && apt-get install -y git && git clone https://github.com/Xiamufa
 
 访问 `http://新VPS地址:3002/`，壁纸库为 `http://新VPS地址:3002/custom/wallpaper-downloads.html`。账号密码沿用原面板；SSH 密码与面板密码是两回事。服务器防火墙或云安全组需允许你使用的面板端口。当前配置提供 HTTP；已有 HTTPS 反向代理可接入该端口。
 
+## 创建 GitHub Token（下载私有仓库）
+
+在 GitHub 登录你的 `Xiamufan` 账号，打开：[创建 Fine-grained Token](https://github.com/settings/personal-access-tokens/new)。
+
+1. **Token name**：填写 `sun-panel-deploy`。
+2. **Expiration**：选择 `30 days`。
+3. **Resource owner**：选择 `Xiamufan`。
+4. **Repository access**：选择 **Only select repositories**，勾选 `sun-panel-vps`。
+5. **Permissions → Repository permissions**：将 **Contents** 设置为 **Read-only**。如果没有看到 Contents，先点击 **Add permissions** 添加。
+6. 点击 **Generate token**，复制生成的 Token。
+
+运行前面的部署命令，Git 提示登录时按下面填写：
+
+```text
+Username for 'https://github.com': Xiamufan
+Password for 'https://Xiamufan@github.com': 粘贴刚生成的 Token，然后回车
+```
+
+密码输入时不显示字符是正常的。这里使用 Token，不是 GitHub 登录密码，也不是 VPS 的 SSH 密码。Token 仅用于下载私有仓库，不需要发给任何人，也不要写进 README、仓库文件或命令 URL。
+
+Token 过期后，已部署的面板仍可运行；再次从 GitHub 下载或更新仓库时，需要生成新的有效 Token。
+
+参考：[GitHub 官方 Token 创建与使用说明](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)。
+
 ## 参数与重复部署
 
 ```bash
